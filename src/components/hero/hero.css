@@ -1,0 +1,13 @@
+.hero h1 {
+    width: 892px;
+    height: 143px;
+    top: 266px;
+    left: 57px;
+    opacity: 0.75px;
+    font-family: Inter;
+    font-size: 118px;
+    font-weight: 600;
+    line-height: 143px;
+    letter-spacing: 0em;
+    text-align: left;
+}

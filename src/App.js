@@ -1,4 +1,4 @@
-
+import Admin from "./components/admin/admin"
 import './App.css';
 import Routes from './components/routes/Routes';
 

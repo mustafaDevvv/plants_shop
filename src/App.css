@@ -3,7 +3,7 @@
   padding: 0px;
 }
 body {
-  background: #171F12;
+  background: rgb(2, 46, 2);
 }
   :root {
     --font-family: "Inter", sans-serif;
@@ -12,3 +12,52 @@ body {
     --font3: "Figma Hand", sans-serif;
     --font4: "Whyte Inktrap", sans-serif;
   }
+  .hero {
+    margin: 100px 50px;
+  }
+  .hero h1 {
+    width: 892px;
+    height: 143px;
+    top: 266px;
+    left: 57px;
+    opacity: 0.75px;
+    font-family: Inter;
+    font-size: 118px;
+    font-weight: 600;
+    line-height: 143px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #FFFFFF;
+}
+.hero p {
+    width: 893px;
+    height: 56px;
+    top: 405px;
+    left: 63px;
+    opacity: 0.75px;
+    font-family: Inter;
+    font-size: 23px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #FFFFFF;
+}
+.hero button {
+  width: 217px;
+  height: 64px;
+  top: 481px;
+  left: 63px;
+  border-radius:12px;
+  opacity: 0.75px;
+  background: fixed;
+  top: 496px;
+  left: 122px;
+  font-family: Inter;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 34px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: white;
+}
