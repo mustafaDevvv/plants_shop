@@ -2,8 +2,8 @@
   margin: 0px;
   padding: 0px;
 }
-body {
-  background: rgb(2, 46, 2);
+body{
+  background-color: #171F12;
 }
   :root {
     --font-family: "Inter", sans-serif;

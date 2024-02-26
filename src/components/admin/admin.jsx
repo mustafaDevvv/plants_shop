@@ -6,7 +6,7 @@ import { admin_pass } from "../../adminSys/Sys";
 import { useDispatch } from "react-redux";
 import { types } from "../../redux/typesFromRedux";
 export default function Admin() {
-    let [product, setProdusct] = useState({
+    let [product, setProduct] = useState({
         title: "",
         description: "",
         price: "",
@@ -24,7 +24,12 @@ export default function Admin() {
         }
     }
     const addProduct = () => {
-        dispatch({ type: types.add, payload: product })
+        if (product.price && product.description && product.title && product.link) {
+            dispatch({ type: types.add, payload: product })
+            setProduct({ link: "", price: "", title: "", description: "" });
+        } else {
+            alert("inputs not information")
+        }
     }
     return (
         <div className='admin'>
@@ -35,11 +40,11 @@ export default function Admin() {
             {adminSession.includes("true") && <div className="admin_inputs">
                 <center><h1>Add plants</h1></center>
                 <div className="admin_inputs_items">
-                    <input type="text" onChange={e => setProdusct({ ...product, link: e.target.value })} placeholder="link" />
-                    <input type="text" onChange={e => setProdusct({ ...product, title: e.target.value })} placeholder="title" />
-                    <input type="text" onChange={e => setProdusct({ ...product, description: e.target.value })} placeholder="description" />
-                    <input value={price} type="text" onChange={e => setProdusct({ ...product, price: e.target.value })} placeholder="price" />
-                    <button> <ion-icon name="bag-add-outline"></ion-icon>Add</button>
+                    <input value={product.link} type="text" onChange={e => setProduct({ ...product, link: e.target.value })} placeholder="link" />
+                    <input value={product.title} type="text" onChange={e => setProduct({ ...product, title: e.target.value })} placeholder="title" />
+                    <input value={product.description} type="text" onChange={e => setProduct({ ...product, description: e.target.value })} placeholder="description" />
+                    <input value={price} type="text" onChange={e => setProduct({ ...product, price: e.target.value })} placeholder="price" />
+                    <button onClick={addProduct}> <ion-icon name="bag-add-outline"></ion-icon>Add</button>
                 </div>
             </div>}
             {product.price && product.link && product.title && product.description ?
@@ -50,7 +55,7 @@ export default function Admin() {
                     <p>{product.description} </p>
                     <div className="product_price">
                         <h4>${product.price}</h4>
-                        <button onClick={addProduct}><MdOutlineShoppingBag /></button>
+                        <button ><MdOutlineShoppingBag /></button>
                     </div>
                 </div> : <h3>not product</h3>
             }
