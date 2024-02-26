@@ -13,7 +13,10 @@ export default function Admin() {
     let adminSession = localStorage.getItem("admin_session") || ''
     return (
         <div className='admin'>
-            
+            <div className="password_admin">
+                <input type="text" placeholder="admin_pass" />
+                <button>Sign In</button>
+            </div>
             {adminSession.includes("true") && <div className="admin_inputs">
                 <center><h1>Add plants</h1></center>
                 <div className="admin_inputs_items">

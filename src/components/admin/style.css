@@ -1,6 +1,9 @@
 body{
     background-color: #171F12;
 }
+input{
+    outline: none;
+  }
 .admin{
     height: 100vh;
     width: 100%;
@@ -117,5 +120,23 @@ body{
     img{
         width: 290px;
         height: 320px;
+    }
+}
+.password_admin{
+    width: 240px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border-radius: 16px;
+    background: #213813;
+    input{
+        background: none;
+        color: white;
+        width: 140px;
+        border: none;
+        font-size: 14px;
+        height: 28px;
     }
 }
