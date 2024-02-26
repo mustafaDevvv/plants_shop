@@ -139,4 +139,13 @@ input{
         font-size: 14px;
         height: 28px;
     }
+    button{
+        width: 70px;
+        height: 25px;
+        border: none;
+        background: #437426;
+        font-size: 14px;
+        border-radius: 8px;
+        color: white;
+    }
 }

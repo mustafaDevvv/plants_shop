@@ -2,6 +2,9 @@ import { useState } from "react"
 import "./style.css"
 import BackdropPath from "../../image/backdrop_path"
 import { MdOutlineShoppingBag } from "react-icons/md";
+import { admin_pass } from "../../adminSys/Sys";
+import { useDispatch } from "react-redux";
+import { types } from "../../redux/typesFromRedux";
 export default function Admin() {
     let [product, setProdusct] = useState({
         title: "",
@@ -10,13 +13,25 @@ export default function Admin() {
         link: ""
     })
     let price = product.price.replace(/[a-z]/gi, '')
+    let dispatch = useDispatch()
     let adminSession = localStorage.getItem("admin_session") || ''
+    let [adminPass, setAdminPass] = useState('')
+    const signInAdmin = () => {
+        if (adminPass == admin_pass.pass) {
+            localStorage.setItem("admin_session", "true")
+        } else {
+            alert('error')
+        }
+    }
+    const addProduct = () => {
+        dispatch({ type: types.add, payload: product })
+    }
     return (
         <div className='admin'>
-            <div className="password_admin">
-                <input type="text" placeholder="admin_pass" />
-                <button>Sign In</button>
-            </div>
+            {adminSession !== "true" && <div className="password_admin">
+                <input value={adminPass} onChange={(e) => setAdminPass(e.target.value)} type="text" placeholder="admin_pass" />
+                <button onClick={signInAdmin}>Sign In</button>
+            </div>}
             {adminSession.includes("true") && <div className="admin_inputs">
                 <center><h1>Add plants</h1></center>
                 <div className="admin_inputs_items">
@@ -35,7 +50,7 @@ export default function Admin() {
                     <p>{product.description} </p>
                     <div className="product_price">
                         <h4>${product.price}</h4>
-                        <button><MdOutlineShoppingBag /></button>
+                        <button onClick={addProduct}><MdOutlineShoppingBag /></button>
                     </div>
                 </div> : <h3>not product</h3>
             }
